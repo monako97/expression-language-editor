@@ -4,7 +4,7 @@ const conf: Partial<ConfigType> = {
   devtool: isDev ? 'eval-cheap-module-source-map' : false,
   bar: false,
   seo: {
-    domain: '这里修改成你部署文档的域名',
+    domain: 'monako97.github.io',
     jekyll: false,
   },
   basename: `/${PACKAGENAME}/`,

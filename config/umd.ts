@@ -8,13 +8,7 @@ const conf: Partial<ConfigType> = {
   output: {
     path: resolveProgram('umd'),
     filename: 'index.js',
-    library: {
-      name: 'expression-language-editor',
-      type: 'umd',
-      umdNamedDefine: true,
-    },
   },
-  bundleAnalyzer: false,
   splitChunk: false,
   runtimeChunk: false,
 };

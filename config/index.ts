@@ -9,6 +9,7 @@ const conf: Partial<ConfigType> = {
         'http-equiv': 'Content-Security-Policy',
         content: `script-src 'self' ${CDNHOST} 'unsafe-eval' 'unsafe-inline' blob:;`,
       },
+      'X-Content-Type-Options': 'nosniff',
     },
   },
   fallbackCompPath: '@/components/fallback',
@@ -26,9 +27,9 @@ const conf: Partial<ConfigType> = {
     },
   },
   prefixCls: 'ant',
-  reactCompiler: {
-    target: '17',
-  }
+  // reactCompiler: {
+  //   target: '17',
+  // }
 };
 
 export default conf;
