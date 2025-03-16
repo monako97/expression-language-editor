@@ -1,6 +1,6 @@
 {
   "name": "expression-language-editor",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Expression Language Editor",
   "main": "lib/index.js",
   "scripts": {
