@@ -1,0 +1,46 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  inline-size: 100%;
+  block-size: 100%;
+  overflow: hidden;
+}
+
+.layout {
+  display: flex;
+  flex: 1;
+  flex-flow: row wrap;
+  overflow: hidden;
+  background-color: var(--component-bg, #fff);
+
+  *::-webkit-scrollbar {
+    inline-size: 0;
+  }
+}
+
+:global(.non-scrollbar) {
+  ::-webkit-scrollbar,
+  *::-webkit-scrollbar {
+    inline-size: 0;
+  }
+}
+
+:global(.g6-contextmenu.add-panel) {
+  overflow: visible !important;
+}
+
+.topbar {
+  inline-size: 100%;
+}
+
+.side {
+  inline-size: 266px;
+  block-size: 100%;
+  overflow-y: auto;
+}
+
+.setting {
+  inline-size: 274px;
+  block-size: 100%;
+  overflow-y: auto;
+}

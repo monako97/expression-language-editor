@@ -1,0 +1,104 @@
+name: Publish and Deploy
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: 'https://registry.npmjs.org'
+      - name: Cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            node_modules/.cache
+            coverage
+          key: ${{ runner.os }}-node-${{ hashFiles('package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: 'Setup pnpm'
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+          run_install: |
+            - recursive: false
+      - name: 'lint'
+        run: pnpm run lint
+      - name: 'Build UMD'
+        run: pnpm run build -- --config=umd
+      - name: 'Build Github Pages'
+        run: pnpm run build no-es no-lib -- --config=github
+      - name: 'Publish to npm'
+        run: |
+          NPM_PACKAGE_NAME=$(node -p "require('./package.json').name")
+          NPM_PACKAGE_VERSION=$(node -p "require('./package.json').version")
+          NPM_PACKAGE_BETA_TAG="beta"
+          NPM_PACKAGE_ALPHA_TAG="alpha"
+          NPM_PACKAGE_TAG="latest"
+          PRE_VERSION=$(npm view "${NPM_PACKAGE_NAME}" version)
+          if [[ $NPM_PACKAGE_VERSION =~ $NPM_PACKAGE_BETA_TAG ]]; then
+              NPM_PACKAGE_TAG=$NPM_PACKAGE_BETA_TAG
+          elif [[ $NPM_PACKAGE_VERSION =~ $NPM_PACKAGE_ALPHA_TAG ]]; then
+              NPM_PACKAGE_TAG=$NPM_PACKAGE_ALPHA_TAG
+          else
+              NPM_PACKAGE_TAG="latest"
+          fi
+          if [[ $(npm view "${NPM_PACKAGE_NAME}" versions) != *"'${NPM_PACKAGE_VERSION}'"* ]]; then
+            npm publish --tag ${NPM_PACKAGE_TAG}
+            echo "Successfully published version ${NPM_PACKAGE_VERSION} of ${NPM_PACKAGE_NAME} to GitLab's NPM registry: ${CI_PROJECT_URL}/-/packages"
+            if [ "$NPM_PACKAGE_TAG" = "latest" ]; then
+              TAG_MESSAGE="### Release version $NPM_PACKAGE_VERSION"
+              PRERELEASE_FLAG=""
+            else
+              TAG_MESSAGE="### Pre-release version $NPM_PACKAGE_VERSION"
+              PRERELEASE_FLAG="--prerelease"
+            fi
+            RELEASE_TITLE="**Full Changelog**: https://github.com/${{ github.repository }}/compare/v$PRE_VERSION...v$NPM_PACKAGE_VERSION"
+            npm pack
+            sudo apt-get update && sudo apt-get install -y pax && sudo apt-get install -y gh
+            cd docs && pax -w -s ",^,$NPM_PACKAGE_NAME/," * | gzip > ../docs.tgz && cd ..
+            gh release create "v$NPM_PACKAGE_VERSION" \
+            --title "v$NPM_PACKAGE_VERSION" \
+            --notes "$TAG_MESSAGE"$'\n\n'"$RELEASE_TITLE" \
+            $PRERELEASE_FLAG \
+            ./docs.tgz \
+            ./$NPM_PACKAGE_NAME-$NPM_PACKAGE_VERSION.tgz
+          else
+            echo "Version ${NPM_PACKAGE_VERSION} of ${NPM_PACKAGE_NAME} has already been published, so no new version has been published."
+          fi
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './docs'
+  deploy:
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

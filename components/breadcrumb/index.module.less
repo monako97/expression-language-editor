@@ -1,0 +1,33 @@
+.breadcrumb {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  padding: 4px 8px;
+  background-color: var(--bg, #fff);
+  box-shadow: 0 0 2px rgb(0 0 0 / 25%);
+  inset-block-end: 12px;
+  inset-inline-start: 12px;
+  user-select: none;
+  gap: 4px;
+
+  .icon {
+    inline-size: 16px;
+    block-size: 16px;
+    margin-block-start: -4px;
+    margin-inline-end: 4px;
+  }
+
+  .item {
+    color: var(--text-color, rgb(0 0 0 / 65%));
+    cursor: pointer;
+
+    &:hover {
+      color: var(--primary-hover, rgb(0 0 0 / 80%));
+    }
+  }
+
+  .divider {
+    opacity: 0.5;
+  }
+}

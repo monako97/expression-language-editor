@@ -1,0 +1,72 @@
+{
+  "name": "expression-language-editor",
+  "version": "0.0.1",
+  "description": "Expression Language Editor",
+  "main": "lib/index.js",
+  "scripts": {
+    "start": "mo start library react",
+    "build": "mo build library react",
+    "lint": "mo eslint [components,site] && mo stylelint [components,site]",
+    "changelog": "mo changelog CHANGELOG.md && git add CHANGELOG.md",
+    "prepare": "mo githooks pre-commit=\"npm run precommit\" commit-msg=\"npx --no -- commitlint --edit ${1}\"",
+    "precommit": "npm run lint && npm run changelog"
+  },
+  "author": {
+    "name": "moneko",
+    "url": "https://github.com/monako97",
+    "email": "meow.monako@gmail.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/monako97/expression-language-editor"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "19.8.0",
+    "@commitlint/config-conventional": "19.8.0",
+    "@moneko/core": "3.30.3",
+    "@moneko/eslint": "1.1.0",
+    "@moneko/react": "1.8.0",
+    "@moneko/stylelint": "1.0.2",
+    "@types/react": "17.0.83",
+    "@types/react-dom": "17.0.26",
+    "babel-plugin-react-compiler": "19.0.0-beta-bafa41b-20250307",
+    "husky": "9.1.7",
+    "n-code-live": "^2.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^4.8.3",
+    "@antv/g": "^6.1.21",
+    "@antv/g6": "^5.0.44",
+    "@moneko/common": "1.7.3",
+    "antd": "^4.24.16",
+    "neko-ui": "2.10.1",
+    "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1",
+    "shared-store-object": "^1.2.1"
+  },
+  "files": [
+    "LICENSE",
+    "README.md",
+    "es",
+    "lib",
+    "types"
+  ],
+  "module": "es/index.js",
+  "types": "types/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./lib/index.js",
+      "import": "./es/index.js"
+    },
+    "./*": [
+      "./*"
+    ]
+  }
+}

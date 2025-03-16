@@ -1,0 +1,20 @@
+{
+    "extends": "@moneko/react/base",
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@/*": [
+                "site/*"
+            ],
+            "@pkg/*": [
+                "components/*"
+            ],
+            "expression-language-editor/*": [
+                "components/*"
+            ]
+        }
+    },
+    "exclude": [
+        "types/*"
+    ]
+}

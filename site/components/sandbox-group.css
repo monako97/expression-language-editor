@@ -1,0 +1,19 @@
+.sandbox-group {
+    display: flex;
+    margin: 0 auto 24px;
+    border-radius: var(--border-radius);
+    padding: 24px;
+    background-color: var(--component-bg);
+    box-shadow: 0 2px 8px 0 var(--primary-shadow);
+    inline-size: 100%;
+    max-inline-size: 1280px;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    gap: 16px 24px;
+}
+
+@media screen and (width <= 580px) {
+    site-sandbox {
+        flex: 100% !important;
+    }
+}
