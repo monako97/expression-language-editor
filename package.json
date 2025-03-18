@@ -28,7 +28,7 @@
   "devDependencies": {
     "@commitlint/cli": "19.8.0",
     "@commitlint/config-conventional": "19.8.0",
-    "@moneko/core": "3.30.3",
+    "@moneko/core": "3.30.5",
     "@moneko/eslint": "1.1.0",
     "@moneko/react": "1.8.0",
     "@moneko/stylelint": "1.0.2",
