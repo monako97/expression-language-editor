@@ -1,7 +1,31 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import docs from '@app/docs';
 import { Outlet, useLocation } from '@moneko/react';
-import { type ColorScheme, mdStyle, type ProviderElement, theme } from 'neko-ui';
+import {
+  Avatar,
+  BackTop,
+  Button,
+  Code,
+  type ColorScheme,
+  Dropdown,
+  Empty,
+  Input,
+  InputNumber,
+  Md,
+  mdStyle,
+  Menu,
+  Modal,
+  Provider,
+  type ProviderElement,
+  registry,
+  Segmented,
+  Select,
+  Skeleton,
+  Tabs,
+  theme,
+  Tree,
+  Typography,
+} from 'neko-ui';
 
 import ChangeLog from '../CHANGELOG.md';
 
@@ -13,6 +37,26 @@ import Sider from './components/sider';
 
 import './global.css';
 
+registry(
+  Md,
+  Provider,
+  BackTop,
+  Code,
+  Segmented,
+  Avatar,
+  Typography,
+  Empty,
+  Dropdown,
+  Modal,
+  Select,
+  Tabs,
+  Input,
+  Menu,
+  Button,
+  InputNumber,
+  Tree,
+  Skeleton,
+);
 theme.setScheme('light');
 document.documentElement.setAttribute('data-theme', theme.isDark() ? 'dark' : 'light');
 function App() {

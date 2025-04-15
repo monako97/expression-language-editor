@@ -1,6 +1,6 @@
 {
   "name": "expression-language-editor",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Expression Language Editor",
   "main": "lib/index.js",
   "scripts": {
@@ -28,28 +28,25 @@
   "devDependencies": {
     "@commitlint/cli": "19.8.0",
     "@commitlint/config-conventional": "19.8.0",
-    "@moneko/core": "3.32.0",
-    "@moneko/eslint": "1.1.0",
-    "@moneko/react": "2.0.4",
-    "@moneko/stylelint": "1.0.2",
-    "@types/react": "17.0.83",
-    "@types/react-dom": "17.0.26",
-    "babel-plugin-react-compiler": "19.0.0-beta-3229e95-20250315",
+    "@moneko/core": "3.42.1",
+    "@moneko/react": "2.0.8",
+    "@types/react": "19.1.2",
+    "@types/react-dom": "19.1.2",
     "husky": "9.1.7",
-    "n-code-live": "^2.0.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "n-code-live": "^2.1.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
   },
   "dependencies": {
-    "@ant-design/icons": "^4.8.3",
-    "@antv/g": "^6.1.21",
-    "@antv/g6": "^5.0.44",
-    "@moneko/common": "1.7.3",
-    "antd": "^4.24.16",
-    "neko-ui": "2.10.1",
+    "@ant-design/icons": "^6.0.0",
+    "@antv/g": "^6.1.23",
+    "@antv/g6": "^5.0.45",
+    "@moneko/common": "1.7.7",
+    "antd": "^5.24.7",
+    "neko-ui": "2.11.0",
     "react-dnd": "^16.0.1",
     "react-dnd-html5-backend": "^16.0.1",
-    "shared-store-object": "^1.2.1"
+    "shared-store-object": "^1.2.4"
   },
   "files": [
     "LICENSE",

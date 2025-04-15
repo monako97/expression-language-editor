@@ -21,8 +21,6 @@ import TopBar from '../topbar';
 
 import * as styles from './index.module.less';
 
-import 'neko-ui/es/modal';
-
 export interface ElEditorProps {
   /**
    * 样式类

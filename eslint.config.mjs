@@ -1,3 +1,3 @@
-import react from '@moneko/eslint/react';
+import react from '@moneko/core/eslint/react';
 
 export default react;

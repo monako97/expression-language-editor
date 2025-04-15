@@ -70,7 +70,7 @@ const DropContainer: React.FC<DropContainerProps> = ({ children, graph }) => {
   });
 
   return (
-    <div className={styles.container} ref={dropRef}>
+    <div className={styles.container} ref={dropRef as unknown as React.Ref<HTMLDivElement>}>
       {children}
     </div>
   );
@@ -99,7 +99,7 @@ export const DragItem: React.FC<DragItemProps> = (props) => {
   });
 
   return (
-    <div ref={dragRef} className={styles.cell}>
+    <div ref={dragRef as unknown as React.Ref<HTMLDivElement>} className={styles.cell}>
       <img
         className={styles.icon}
         src={item.icon}

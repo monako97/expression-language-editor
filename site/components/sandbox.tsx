@@ -1,19 +1,22 @@
 import React from 'react';
 import { jsx } from 'react/jsx-runtime';
-import ReactDom from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { type ExampleModule } from '@app/example';
 import * as Pkgs from '@pkg/index';
 import CodeLive, { type CodeLiveElement } from 'n-code-live';
 import {
   type BaseOption,
+  Button,
   type CodeElement,
   type Language,
   Modal,
+  registry,
   type SegmentedElement,
 } from 'neko-ui';
 
 import './sandbox.css';
 
+CodeLive.registry();
 interface SandboxProps extends Omit<ExampleModule, 'title'> {
   legend: string;
   codes: Record<string, string>;
@@ -24,13 +27,20 @@ interface SandboxProps extends Omit<ExampleModule, 'title'> {
 const scope = {
   React,
   CodeLive,
+  Button,
   jsx,
   Modal,
+  registry,
   ...React,
   ...Pkgs,
 };
 
-const Sandbox: React.FC<SandboxProps> = ({ codes = {}, description, legend, style }) => {
+const Sandbox: React.FC<SandboxProps> = ({
+  codes = {},
+  description,
+  legend,
+  style,
+}: SandboxProps) => {
   const langsRef = React.useRef<SegmentedElement>(null);
   const live = React.useRef<CodeLiveElement>(null);
   const codeRef = React.useRef<CodeElement>(null);
@@ -89,14 +99,15 @@ const Sandbox: React.FC<SandboxProps> = ({ codes = {}, description, legend, styl
           const ele = document.createElement('div');
 
           el.append(ele);
+          const root = createRoot(el);
 
-          ReactDom.render(
+          root.render(
             <React.StrictMode>{typeof Dom === 'function' ? <Dom /> : Dom}</React.StrictMode>,
-            ele,
           );
+
           return () => {
             try {
-              ReactDom.unmountComponentAtNode(ele);
+              root.unmount();
             } catch (error) {
               // eslint-disable-next-line no-console
               console.log(error);

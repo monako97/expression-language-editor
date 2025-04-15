@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import type { TreeData, TreeElement } from 'neko-ui';
+import { Empty, registry, Tree, type TreeData, type TreeElement } from 'neko-ui';
 
 import { ConditionTypeEnum } from '../../enums';
 import type { ELNode } from '../../model/node';
@@ -7,7 +7,7 @@ import { model, selectNode } from '../../store';
 
 import * as styles from './index.module.less';
 
-import 'neko-ui/es/tree';
+registry(Tree, Empty);
 
 const transformer = (currentModel: ELNode, keys: string[]): TreeData => {
   const key = `${currentModel.type}-${crypto.randomUUID()}`;

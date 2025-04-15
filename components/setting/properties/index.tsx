@@ -1,9 +1,18 @@
 import React, { useEffect, useMemo, useRef } from 'react';
-import type { InputElement, InputNumberElement, SelectElement } from 'neko-ui';
+import {
+  Input,
+  type InputElement,
+  InputNumber,
+  type InputNumberElement,
+  registry,
+  Select,
+  type SelectElement,
+} from 'neko-ui';
 
 import { ConditionTypeEnum, NodeTypeEnum } from '../../enums';
 import { getSelectElNode, model, store, updateElNodeData } from '../../store';
 
+registry(Input, InputNumber, Select);
 const anyOptions = [
   { label: '是', value: true },
   { label: '否', value: false },

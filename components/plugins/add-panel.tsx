@@ -1,5 +1,5 @@
 import type { ContextmenuOptions } from '@antv/g6';
-import type { MenuOption } from 'neko-ui';
+import { Dropdown, type DropdownElement, type MenuOption, registry } from 'neko-ui';
 
 import { NodeTypeEnum } from '../enums';
 import { ELBuilder } from '../model/builder';
@@ -8,8 +8,7 @@ import { collapseShape, type ElLikeData } from '../shape/rect-node';
 import { clearCells, model, store } from '../store';
 import { pushHistory } from '../store/history';
 
-import 'neko-ui/es/dropdown';
-
+registry(Dropdown);
 const items: MenuOption[] = groups.map((group) => {
   return {
     label: group.name,
@@ -110,7 +109,7 @@ export const addPanelMenu: ContextmenuOptions = {
     const { wrapper } = store;
     const { action } = model;
     const panel = document.createElement('div');
-    const dropdown = document.createElement('n-dropdown');
+    const dropdown = document.createElement('n-dropdown') as unknown as DropdownElement;
 
     dropdown.trigger = 'click';
     dropdown.open = true;

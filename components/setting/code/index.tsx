@@ -1,22 +1,26 @@
 import React, { useEffect, useRef, useState } from 'react';
-import type { Language } from 'neko-ui';
+import { Code as NCode, type CodeElement, type Language, registry, Segmented } from 'neko-ui';
 
 import { model } from '../../store';
 
-type Segmented = 'EL表达式' | 'DSL';
+registry(Segmented, NCode);
+type Type = 'EL表达式' | 'DSL';
 const Code: React.FC = () => {
   const segmented = useRef(null);
-  const codeRef = useRef(null);
-  const [current, setCurrent] = useState<Segmented>('EL表达式');
+  const codeRef = useRef<CodeElement>(null);
+  const [current, setCurrent] = useState<Type>('EL表达式');
   const { code, dsl } = model;
 
   useEffect(() => {
     Object.assign(segmented.current!, {
       options: ['EL表达式', 'DSL'],
-      onchange: (e: CustomEvent<Segmented>) => {
+      onchange: (e: CustomEvent<Type>) => {
         setCurrent(e.detail);
       },
     });
+    if (codeRef.current) {
+      codeRef.current.toolbar = true;
+    }
   }, []);
   useEffect(() => {
     if (code) {
@@ -57,7 +61,6 @@ const Code: React.FC = () => {
           }
         `}
         language={'javascript ' as Language}
-        toolbar
       />
     </div>
   );

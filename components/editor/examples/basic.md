@@ -6,9 +6,10 @@ order: 1
 
 ```jsx
 import React, { useCallback, useState } from 'react';
-import { Modal } from 'neko-ui';
+import { Modal, Button, registry } from 'neko-ui';
 import { ElEditor, toJSON, Modal } from 'expression-language-editor';
 
+registry(Button);
 const SaveDSL = () => {
   return (
     <n-button

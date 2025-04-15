@@ -13,22 +13,15 @@ const conf: Partial<ConfigType> = {
     },
   },
   fallbackCompPath: '@/components/fallback',
-  importOnDemand: {
-    lodash: {
-      transform: '${member}',
-    },
-    '@moneko/common': {
-      transform: 'esm/${member}',
-    },
-    antd: {
-      transform: 'es/${member}',
-      style: 'es/${member}/style',
-      memberTransformers: ['dashed_case'],
-    },
-  },
   prefixCls: 'ant',
+  modifyVars: {
+    '@ant-prefix': 'ant'
+  },
+  devServer: {
+    https: true
+  },
   // reactCompiler: {
-  //   target: '17',
+  //   compilationMode: 'infer',
   // }
 };
 
