@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import readme from '../../README.md?raw';
 
 import './colors.global.less';
 
-function Colors() {
-  const colors = ['primary', 'warning', 'error', 'success'],
-    types = ['bg', 'outline', 'border', 'color', 'hover', 'active'];
+const colors = ['primary', 'warning', 'error', 'success'],
+  types = ['bg', 'outline', 'border', 'color', 'hover', 'active'];
 
+function Colors() {
   return (
     <>
       <n-md text={readme} not-render picture-viewer={false} />
@@ -39,4 +39,4 @@ function Colors() {
   );
 }
 
-export default Colors;
+export default memo(Colors);

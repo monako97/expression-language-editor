@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef } from 'react';
+import React, { memo, useEffect, useMemo, useRef } from 'react';
 import { description } from '@app/info';
 import routes, { type RouteConfig } from '@app/routes';
 import { Link, useLocation } from '@moneko/react';
@@ -60,6 +60,7 @@ for (const key in obj) {
 
 export { all, kv };
 function Sider({ scheme }: { scheme?: keyof typeof ColorScheme }) {
+  'use memo';
   const sider = useRef<HTMLDivElement>(null);
   const themeSwitch = useRef<DropdownElement>(null);
   const location = useLocation();
@@ -171,4 +172,4 @@ function Sider({ scheme }: { scheme?: keyof typeof ColorScheme }) {
     </section>
   );
 }
-export default Sider;
+export default memo(Sider);

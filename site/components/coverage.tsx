@@ -16,6 +16,7 @@ function getNum(num: number) {
   return typeof num === 'number' && !isNaN(num) ? num : '-';
 }
 const Coverage: FC = () => {
+  'use memo';
   const location = useLocation();
   const coverages = useMemo(() => {
     const component = location.pathname.substring(1);

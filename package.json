@@ -28,11 +28,10 @@
   "devDependencies": {
     "@commitlint/cli": "19.8.0",
     "@commitlint/config-conventional": "19.8.0",
-    "@moneko/core": "3.42.1",
+    "@moneko/core": "3.43.3",
     "@moneko/react": "2.0.8",
     "@types/react": "19.1.2",
     "@types/react-dom": "19.1.2",
-    "husky": "9.1.7",
     "n-code-live": "^2.1.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
@@ -42,7 +41,7 @@
     "@antv/g": "^6.1.23",
     "@antv/g6": "^5.0.45",
     "@moneko/common": "1.7.7",
-    "antd": "^5.24.7",
+    "antd": "^5.24.8",
     "neko-ui": "2.11.0",
     "react-dnd": "^16.0.1",
     "react-dnd-html5-backend": "^16.0.1",

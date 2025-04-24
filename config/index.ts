@@ -20,8 +20,9 @@ const conf: Partial<ConfigType> = {
   devServer: {
     https: true
   },
+  strict: true,
   // reactCompiler: {
-  //   compilationMode: 'infer',
+  //   compilationMode: 'annotation',
   // }
 };
 

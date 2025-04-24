@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { memo, useEffect, useMemo, useRef, useState } from 'react';
 import docs from '@app/docs';
 import { Outlet, useLocation } from '@moneko/react';
 import {
@@ -60,6 +60,7 @@ registry(
 theme.setScheme('light');
 document.documentElement.setAttribute('data-theme', theme.isDark() ? 'dark' : 'light');
 function App() {
+  'use memo';
   const provider = useRef<ProviderElement>(null);
   const box = useRef<HTMLDivElement>(null);
   const { isDark, scheme: orgScheme } = theme;
@@ -111,4 +112,4 @@ function App() {
   );
 }
 
-export default App;
+export default memo(App);

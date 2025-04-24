@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { jsx } from 'react/jsx-runtime';
 import { createRoot } from 'react-dom/client';
 import { type ExampleModule } from '@app/example';
@@ -41,6 +41,7 @@ const Sandbox: React.FC<SandboxProps> = ({
   legend,
   style,
 }: SandboxProps) => {
+  'use memo';
   const langsRef = React.useRef<SegmentedElement>(null);
   const live = React.useRef<CodeLiveElement>(null);
   const codeRef = React.useRef<CodeElement>(null);
@@ -211,4 +212,4 @@ const Sandbox: React.FC<SandboxProps> = ({
   );
 };
 
-export default Sandbox;
+export default memo(Sandbox);
