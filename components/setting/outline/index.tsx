@@ -54,8 +54,8 @@ const Outline: React.FC = () => {
         img.src = item.icon as string;
         return [img, title || '-', subTitle];
       };
-      tree.current.onchange = (e: CustomEvent<[string, TreeData & { data: ELNode }]>) => {
-        selectNode(e.detail[1].data, true);
+      tree.current.onChange = (...e: [string, TreeData & { data: ELNode }]) => {
+        selectNode(e[1].data, true);
       };
     }
   }, [refresh]);

@@ -31,11 +31,7 @@ const makeBtnWidget = (options: IOptions) => {
     };
 
     return (
-      <Tooltip
-        title={tooltip}
-        getPopupContainer={() => wrapper || document.body}
-        destroyTooltipOnHide
-      >
+      <Tooltip title={tooltip} getPopupContainer={() => wrapper || document.body} destroyOnHidden>
         <div
           className={`${styles.widget} ${disabled ? styles.disabled : ''} ${
             selected ? styles.selected : ''

@@ -15,15 +15,16 @@ const conf: Partial<ConfigType> = {
   fallbackCompPath: '@/components/fallback',
   prefixCls: 'ant',
   modifyVars: {
-    '@ant-prefix': 'ant'
+    '@ant-prefix': 'ant',
   },
   devServer: {
-    https: true
+    https: true,
   },
   strict: true,
-  // reactCompiler: {
-  //   compilationMode: 'annotation',
-  // }
+  reactCompiler: {
+    compilationMode: 'annotation',
+    target: '19',
+  },
 };
 
 export default conf;

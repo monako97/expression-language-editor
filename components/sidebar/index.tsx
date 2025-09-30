@@ -64,15 +64,15 @@ const SideBar: React.FC = () => {
         bordered={false}
         className={styles.collapse}
         defaultActiveKey={['node', 'sequence', 'branch', 'control', 'other', 'chain']}
-      >
-        {groups.map((group) => (
-          <Collapse.Panel key={group.key} header={group.name} className={styles.panel}>
-            {group.cellTypes.map((item, index) => (
-              <DragItem key={index} item={item} onDragEnd={onDragEnd} />
-            ))}
-          </Collapse.Panel>
-        ))}
-      </Collapse>
+        items={groups.map((group) => ({
+          key: group.key,
+          label: group.name,
+          className: styles.panel,
+          children: group.cellTypes.map((item, index) => (
+            <DragItem key={index} item={item} onDragEnd={onDragEnd} />
+          )),
+        }))}
+      />
     </div>
   );
 };

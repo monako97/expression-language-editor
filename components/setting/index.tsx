@@ -27,8 +27,8 @@ const SettingBar: React.FC = () => {
         { label: '结构', value: 'outline', icon: structureIcon },
       ],
       value: setting,
-      onchange: (e: CustomEvent<'properties' | 'code' | 'outline'>) => {
-        model.setting = e.detail;
+      onChange: (e: 'properties' | 'code' | 'outline') => {
+        model.setting = e;
       },
     });
   }, [current?.parent, refresh, setting]);

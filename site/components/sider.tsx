@@ -117,7 +117,6 @@ function Sider({ scheme }: { scheme?: keyof typeof ColorScheme }) {
         <n-dropdown
           ref={themeSwitch}
           value={scheme}
-          trigger="click"
           css={`
             .theme-btn {
               font-size: 28px;
