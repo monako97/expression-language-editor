@@ -2,6 +2,10 @@
 
 ## Last
 
+### 🐛 Bug Fixes
+
+- update event handlers and improve dropdown behavior ([af2b501](https://github.com/monako97/expression-language-editor/commit/af2b501041e2048b13c64646ef7fdcffdfde008f))
+
 ### 📚 Documentation
 
 - update deps ([1b82fd4](https://github.com/monako97/expression-language-editor/commit/1b82fd4f5aaf9f60b729d3585d3d790eac119613))

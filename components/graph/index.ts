@@ -19,22 +19,9 @@ import { contextmenu } from '../plugins/contentmenu';
 import { ElEdge } from '../shape/edge';
 import { ElRectNode, getLabelWidth } from '../shape/rect-node';
 
-register(ExtensionCategory.EDGE, ElEdge.type, ElEdge, true);
-register(ExtensionCategory.NODE, ElRectNode.type, ElRectNode, true);
-// type ToolbarKind =
-//   | 'zoom-in'
-//   | 'zoom-out'
-//   | 'redo'
-//   | 'undo'
-//   | 'edit'
-//   | 'delete'
-//   | 'auto-fit'
-//   | 'export'
-//   | 'reset';
-// interface ToolbarItem {
-//   id: string;
-//   value: ToolbarKind;
-// }
+register(ExtensionCategory.EDGE, ElEdge.type, ElEdge);
+register(ExtensionCategory.NODE, ElRectNode.type, ElRectNode);
+
 export function createGraph(options: GraphOptions) {
   const layout: LayoutOptions = {
     type: 'antv-dagre',

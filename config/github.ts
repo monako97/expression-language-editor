@@ -7,9 +7,10 @@ const conf: Partial<ConfigType> = {
     domain: 'monako97.github.io',
     jekyll: false,
   },
+  htmlPluginOption: {
+    publicPath: `/${PACKAGENAME}/`,
+  },
   basename: `/${PACKAGENAME}/`,
-  publicPath: `/${PACKAGENAME}/`,
-  bundleAnalyzer: false,
   fixBrowserRouter: {
     pathSegmentsToKeep: 1,
     path: '404.html',
