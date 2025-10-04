@@ -31,7 +31,7 @@
     "registry": "https://registry.npmjs.org"
   },
   "devDependencies": {
-    "@moneko/core": "3.56.1",
+    "@moneko/core": "3.56.2",
     "@moneko/react": "2.0.14",
     "@types/react": "19.1.16",
     "@types/react-dom": "19.1.9",

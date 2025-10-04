@@ -11,6 +11,7 @@ const conf: Partial<ConfigType> = {
   },
   splitChunk: false,
   runtimeChunk: false,
+  reactCompiler: false,
 };
 
 export default conf;
