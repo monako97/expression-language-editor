@@ -1,8 +1,8 @@
 import React, { memo } from 'react';
 import { jsx } from 'react/jsx-runtime';
 import { createRoot } from 'react-dom/client';
-import { type ExampleModule } from '@app/example';
 import * as Pkgs from '@pkg/index';
+import { type ExampleModule } from 'docs:example';
 import CodeLive, { type CodeLiveElement } from 'n-code-live';
 import {
   type BaseOption,

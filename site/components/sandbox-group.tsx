@@ -1,7 +1,7 @@
 import React, { type FC, lazy, memo, Suspense, useMemo } from 'react';
-import examples from '@app/example';
-import Fallback from '@app/fallback';
 import { isFunction } from '@moneko/common';
+import Fallback from 'app:fallback';
+import examples from 'docs:example';
 
 import Sandbox from './sandbox';
 
@@ -16,7 +16,7 @@ const SandboxGroup: FC<SandboxGroupProps> = (props) => {
   'use memo';
   async function load(name: string) {
     let box: () => JSX.Element | null = () => null;
-    const exampleModule = examples[`@app/example/${name}`];
+    const exampleModule = examples[`example:${name}`];
 
     if (name.length > 0 && isFunction(exampleModule)) {
       const resp = (await exampleModule()).default || [];

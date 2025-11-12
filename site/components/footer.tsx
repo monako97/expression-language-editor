@@ -1,5 +1,5 @@
 import React, { memo, useState } from 'react';
-import { author, name, repository } from '@app/info';
+import { author, name, repository } from 'app:info';
 
 import './footer.css';
 

@@ -1,20 +1,12 @@
 {
-    "extends": "@moneko/react/base",
-    "compilerOptions": {
-        "baseUrl": ".",
-        "paths": {
-            "@/*": [
-                "site/*"
-            ],
-            "@pkg/*": [
-                "components/*"
-            ],
-            "expression-language-editor/*": [
-                "components/*"
-            ]
-        }
-    },
-    "exclude": [
-        "types/*"
-    ]
+  "extends": "@moneko/react/base",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["site/*"],
+      "@pkg/*": ["components/*"],
+      "expression-language-editor/*": ["components/*"]
+    }
+  }
 }

@@ -1,8 +1,9 @@
-import React, { memo } from 'react';
+import React from 'react';
+import { registry, Skeleton } from 'neko-ui';
 
+registry(Skeleton);
 const Fallback = () => {
-  'use memo';
   return <n-skeleton active={true} title={true} rows={6} />;
 };
 
-export default memo(Fallback);
+export default Fallback;

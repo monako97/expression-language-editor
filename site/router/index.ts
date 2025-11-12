@@ -1,4 +1,4 @@
-import { lazy, type RouteConfig } from '@app/routes';
+import { lazy, type RouteConfig } from 'app:routes';
 
 const router: RouteConfig[] = [
   {

@@ -1,7 +1,7 @@
 import React, { memo, useEffect, useMemo, useRef } from 'react';
-import { description } from '@app/info';
-import routes, { type RouteConfig } from '@app/routes';
 import { Link, useLocation } from '@moneko/react';
+import { description } from 'app:info';
+import routes, { type RouteConfig } from 'app:routes';
 import { type ColorScheme, type DropdownElement, type MenuOption, theme } from 'neko-ui';
 
 import './sider.global.less';

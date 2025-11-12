@@ -1,9 +1,10 @@
 # Change log
 
-## Last
+## [v0.0.4](https://github.com/monako97/expression-language-editor/compare/v0.0.3...v0.0.4) (10-26-2025)
 
 ### 🐛 Bug Fixes
 
+- update eslint configuration and bump package dependencies ([b5fa8d9](https://github.com/monako97/expression-language-editor/commit/b5fa8d9b8bd7059735613c8f86ab85bfb9077618))
 - ensure reactCompiler is explicitly set to false in configuration ([ede5fdd](https://github.com/monako97/expression-language-editor/commit/ede5fdd1f5da65a46fd8f1b7e688439909195c4e))
 - update event handlers and improve dropdown behavior ([af2b501](https://github.com/monako97/expression-language-editor/commit/af2b501041e2048b13c64646ef7fdcffdfde008f))
 
